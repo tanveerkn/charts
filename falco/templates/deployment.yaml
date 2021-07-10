@@ -19,6 +19,9 @@ spec:
       labels:
         app: {{ template "falco.fullname" . }}-event-generator
     spec:
+{{- if .Values.nodeSelector }}
+      nodeSelector: {{- .Values.nodeSelector | toYaml | nindent 8 }}
+{{- end }}
       serviceAccountName: {{ template "falco.serviceAccountName" .}}
       containers:
       - name: {{ template "falco.fullname" . }}-event-generator

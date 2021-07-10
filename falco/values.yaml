@@ -45,7 +45,9 @@ resources:
     memory: 1024Mi
 
 extraArgs: []
-nodeSelector: {}
+#nodeSelector: {}
+nodeSelector:
+  runtime: docker
 affinity: {}
 
 rbac:
